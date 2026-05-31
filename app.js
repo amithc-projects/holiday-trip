@@ -23,9 +23,27 @@ const LOCATIONS = {
   },
   uplistsikhe: { 
     coords: [41.9615, 44.2081], 
-    name: "Uplistsikhe & Gori, Georgia", 
-    desc: "Ancient Cave Town & Stalin Museum",
+    name: "Uplistsikhe Cave Town, Georgia", 
+    desc: "Ancient rock-hewn town dating back to the Early Iron Age",
     wiki: "https://en.wikipedia.org/wiki/Uplistsikhe"
+  },
+  gori_fortress: {
+    coords: [41.9868, 44.1157],
+    name: "Gori Fortress, Georgia",
+    desc: "Medieval citadel on a rocky hill in the center of Gori, offering panoramic views",
+    wiki: "https://en.wikipedia.org/wiki/Gori_Fortress"
+  },
+  war_heroes_memorial: {
+    coords: [41.9859, 44.1152],
+    name: "Memorial of Georgian War Heroes, Gori",
+    desc: "A striking circular arrangement of large bronze warrior statues at the foot of the fortress",
+    wiki: "https://en.wikipedia.org/wiki/Memorial_of_Georgian_War_Heroes"
+  },
+  ateni_sioni: {
+    coords: [41.9048, 44.0961],
+    name: "Ateni Sioni Church, Georgia",
+    desc: "7th-century church with expressive stone carvings, located in a scenic wine-valley south of Gori",
+    wiki: "https://en.wikipedia.org/wiki/Ateni_Sioni_Church"
   },
   armenia_border: { 
     coords: [41.2223, 44.8329], 
@@ -98,7 +116,7 @@ const DAY_LOCATIONS = {
   1: ["london", "tbilisi"],
   2: ["tbilisi"],
   3: ["tbilisi", "mtskheta"],
-  4: ["tbilisi", "uplistsikhe"],
+  4: ["tbilisi", "uplistsikhe", "gori_fortress", "war_heroes_memorial", "ateni_sioni"],
   5: ["tbilisi", "armenia_border", "haghpat", "sanahin"],
   6: ["tbilisi"],
   7: ["tbilisi", "ananuri", "gudauri", "kazbegi"],
@@ -145,17 +163,39 @@ function initMap() {
   Object.keys(LOCATIONS).forEach(key => {
     const loc = LOCATIONS[key];
     const el = document.createElement("div");
-    el.className = "custom-marker";
-    el.innerHTML = key === "london" ? "L" : key === "baku" ? "B" : key === "tbilisi" ? "T" : "•";
+    const isBase = ["tbilisi", "kazbegi", "baku"].includes(key);
+
+    if (isBase) {
+      el.className = "custom-marker base-marker";
+      el.innerHTML = `<span class="material-symbols-outlined" style="font-size: 14px; font-weight: bold; display: flex; align-items: center; justify-content: center;">home</span>`;
+    } else {
+      el.className = "custom-marker stopover-marker";
+      el.innerHTML = key === "london" ? "L" : "•";
+    }
 
     const icon = L.divIcon({
       html: el,
       className: "custom-div-icon",
-      iconSize: [24, 24],
-      iconAnchor: [12, 12]
+      iconSize: [26, 26],
+      iconAnchor: [13, 13]
     });
 
     const marker = L.marker(loc.coords, { icon: icon }).addTo(map);
+    
+    if (isBase) {
+      const nightsText = key === "tbilisi" ? "6 Nights" : key === "kazbegi" ? "3 Nights" : "4 Nights";
+      marker.bindTooltip(
+        `<div style="font-weight: 700; color: #F59E0B; text-transform: uppercase; font-size: 9px; letter-spacing: 0.5px;">Stay Base</div>
+         <div style="font-size: 11px; font-weight: 600;">${loc.name.split(',')[0]}</div>
+         <div style="color: #94A3B8; font-size: 10px; margin-top: 1px;">${nightsText}</div>`,
+        {
+          permanent: true,
+          direction: "top",
+          offset: [0, -15],
+          className: "leaflet-base-tooltip"
+        }
+      );
+    }
     
     // Construct popup HTML with image and Wikipedia link
     let popupHTML = `<div class="map-popup-content" style="max-width: 250px;">`;
@@ -190,8 +230,12 @@ function initMap() {
 
   drawRoadPath([
     LOCATIONS.tbilisi.coords,
-    LOCATIONS.uplistsikhe.coords
-  ], "Uplistsikhe/Gori Excursion");
+    LOCATIONS.uplistsikhe.coords,
+    LOCATIONS.gori_fortress.coords,
+    LOCATIONS.war_heroes_memorial.coords,
+    LOCATIONS.ateni_sioni.coords,
+    LOCATIONS.tbilisi.coords
+  ], "Uplistsikhe & Gori Excursion");
 
   drawRoadPath([
     LOCATIONS.tbilisi.coords,

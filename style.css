@@ -619,8 +619,8 @@ body {
 }
 
 .custom-marker {
-  width: 24px;
-  height: 24px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   background: var(--bg-primary);
   border: 3px solid var(--accent-primary);
@@ -635,11 +635,33 @@ body {
   transition: var(--transition-smooth);
 }
 
-.custom-marker.active {
+.custom-marker.base-marker {
   background: var(--accent-primary);
   color: var(--bg-primary);
+  border: 2px solid var(--text-primary);
+  box-shadow: 0 0 15px var(--accent-primary);
+  border-radius: 6px;
+}
+
+.custom-marker.base-marker.active {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 25px var(--accent-primary), 0 0 50px var(--accent-primary);
+  transform: scale(1.3);
+}
+
+.custom-marker.stopover-marker {
+  border-color: #3B82F6;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  color: #3B82F6;
+}
+
+.custom-marker.stopover-marker.active {
+  background: #3B82F6;
+  color: var(--bg-primary);
+  box-shadow: 0 0 20px #3B82F6, 0 0 40px #3B82F6;
   transform: scale(1.2);
-  box-shadow: 0 0 20px var(--accent-primary), 0 0 40px var(--accent-primary);
 }
 
 /* Leaflet dark theme map custom styles */
@@ -904,3 +926,74 @@ body {
   font-size: 14px;
   margin-bottom: 20px;
 }
+
+/* Transfer Cards */
+.transfer-card {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  border-left: 4px solid var(--info);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: var(--transition-smooth);
+}
+
+.transfer-card:hover {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.25) rgba(59, 130, 246, 0.25) rgba(59, 130, 246, 0.25) var(--info);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.transfer-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--info);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.transfer-header span {
+  font-size: 16px;
+}
+
+.transfer-detail {
+  display: grid;
+  grid-template-columns: 85px 1fr;
+  gap: 4px 12px;
+}
+
+.transfer-label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.transfer-value {
+  color: var(--text-secondary);
+}
+
+/* Leaflet Base Tooltips */
+.leaflet-base-tooltip {
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--accent-primary) !important;
+  color: var(--text-primary) !important;
+  border-radius: 6px !important;
+  padding: 6px 10px !important;
+  font-family: var(--font-heading) !important;
+  font-size: 11px !important;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25) !important;
+  opacity: 0.95 !important;
+  text-align: center !important;
+  pointer-events: none !important;
+}
+
+.leaflet-base-tooltip::before {
+  border-top-color: var(--accent-primary) !important;
+}
+
