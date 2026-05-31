@@ -8,6 +8,11 @@
   
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>" />
 
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+
   <!-- Stylesheet -->
   <link rel="stylesheet" href="./style.css" />
 </head>
@@ -45,6 +50,43 @@
             A bespoke 14-day overland journey across Georgia, Armenia, and Azerbaijan. Curated for 4 adults with premium accommodations, direct flights, and private border excursions.
           </p>
           
+          <div class="hero-overview" style="margin-bottom: 25px; padding: 15px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: 12px; font-size: 13px;">
+            <div style="font-weight: 700; color: var(--accent-primary); margin-bottom: 8px; font-family: var(--font-heading); font-size: 12px; letter-spacing: 0.5px; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">
+              <span class="material-symbols-outlined" style="font-size: 16px;">explore</span> Simple Route Overview
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 8px 16px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 16px; min-width: 20px; text-align: center;">🇬🇪</span>
+                <span style="color: var(--text-primary); font-weight: 600;">Tbilisi, Georgia:</span>
+                <span style="color: var(--accent-primary); font-family: var(--font-mono); font-weight: 600;">6 Days</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 16px; min-width: 20px; text-align: center;">🇦🇲</span>
+                <span style="color: var(--text-primary); font-weight: 600;">Armenia:</span>
+                <span style="color: var(--accent-primary); font-family: var(--font-mono); font-weight: 600;">1 Day</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 16px; min-width: 20px; text-align: center;">🇬🇪</span>
+                <span style="color: var(--text-primary); font-weight: 600;">Kazbegi, Georgia:</span>
+                <span style="color: var(--accent-primary); font-family: var(--font-mono); font-weight: 600;">3 Days</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 16px; min-width: 20px; text-align: center;">🇦🇿</span>
+                <span style="color: var(--text-primary); font-weight: 600;">Baku, Azerbaijan:</span>
+                <span style="color: var(--accent-primary); font-family: var(--font-mono); font-weight: 600;">4 Days</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                <span style="font-size: 16px; min-width: 20px; text-align: center;">✈️</span>
+                <span style="color: var(--text-primary); font-weight: 600;">3 Flights:</span>
+                <span style="display: inline-flex; gap: 6px; font-family: var(--font-mono); font-size: 11px;">
+                  <a href="https://www.google.com/flights?q=flights+from+LHR+to+TBS+on+2026-09-03+one-way+direct" target="_blank" style="color: var(--accent-primary); text-decoration: underline; font-weight: 600;">LHR➔TBS</a>
+                  <a href="https://www.google.com/flights?q=flights+from+TBS+to+GYD+on+2026-09-12+one-way+direct" target="_blank" style="color: var(--accent-primary); text-decoration: underline; font-weight: 600;">TBS➔GYD</a>
+                  <a href="https://www.google.com/flights?q=flights+from+GYD+to+LHR+on+2026-09-16+one-way+direct" target="_blank" style="color: var(--accent-primary); text-decoration: underline; font-weight: 600;">GYD➔LHR</a>
+                </span>
+              </div>
+            </div>
+          </div>
+          
           <div class="hero-stats">
             <div class="stat-item">
               <span class="material-symbols-outlined stat-icon">calendar_today</span>
@@ -60,13 +102,20 @@
                 <div class="stat-label">Visited</div>
               </div>
             </div>
-            <div class="stat-item">
+            <a href="#accommodations" class="stat-item clickable-stat" style="text-decoration: none; color: inherit;">
               <span class="material-symbols-outlined stat-icon">hotel</span>
               <div>
                 <div class="stat-val">3 Bases</div>
                 <div class="stat-label">Accommodation</div>
               </div>
-            </div>
+            </a>
+            <a href="#transport" class="stat-item clickable-stat" style="text-decoration: none; color: inherit;">
+              <span class="material-symbols-outlined stat-icon">flight_takeoff</span>
+              <div>
+                <div class="stat-val">3 Flights</div>
+                <div class="stat-label">Outbound, Connect, Inbound</div>
+              </div>
+            </a>
             <div class="stat-item">
               <span class="material-symbols-outlined stat-icon">payments</span>
               <div>
@@ -109,7 +158,7 @@
                   <span>Thu, Sep 3, 2026</span>
                 </div>
                 <div class="flight-detail-item" style="margin-top: 12px; border-top: 1px solid var(--border-color); padding-top: 8px;">
-                  <a href="https://www.google.com/flights?q=flights+from+LHR+to+TBS+on+2026-09-03+direct" target="_blank" style="color:var(--accent-primary); text-decoration:none; font-weight:600; font-size:12px; display:inline-flex; align-items:center; gap:4px;">Search Google Flights <span class="material-symbols-outlined" style="font-size:12px;">open_in_new</span></a>
+                  <a href="https://www.google.com/flights?q=flights+from+LHR+to+TBS+on+2026-09-03+one-way+direct" target="_blank" style="color:var(--accent-primary); text-decoration:none; font-weight:600; font-size:12px; display:inline-flex; align-items:center; gap:4px;">Search Google Flights <span class="material-symbols-outlined" style="font-size:12px;">open_in_new</span></a>
                 </div>
               </div>
             </article>
@@ -139,7 +188,7 @@
                   <span>Sat, Sep 12, 2026</span>
                 </div>
                 <div class="flight-detail-item" style="margin-top: 12px; border-top: 1px solid var(--border-color); padding-top: 8px;">
-                  <a href="https://www.google.com/flights?q=flights+from+TBS+to+GYD+on+2026-09-12+direct" target="_blank" style="color:var(--accent-primary); text-decoration:none; font-weight:600; font-size:12px; display:inline-flex; align-items:center; gap:4px;">Search Google Flights <span class="material-symbols-outlined" style="font-size:12px;">open_in_new</span></a>
+                  <a href="https://www.google.com/flights?q=flights+from+TBS+to+GYD+on+2026-09-12+one-way+direct" target="_blank" style="color:var(--accent-primary); text-decoration:none; font-weight:600; font-size:12px; display:inline-flex; align-items:center; gap:4px;">Search Google Flights <span class="material-symbols-outlined" style="font-size:12px;">open_in_new</span></a>
                 </div>
               </div>
             </article>
@@ -169,7 +218,46 @@
                   <span>Wed, Sep 16, 2026</span>
                 </div>
                 <div class="flight-detail-item" style="margin-top: 12px; border-top: 1px solid var(--border-color); padding-top: 8px;">
-                  <a href="https://www.google.com/flights?q=flights+from+GYD+to+LHR+on+2026-09-16+direct" target="_blank" style="color:var(--accent-primary); text-decoration:none; font-weight:600; font-size:12px; display:inline-flex; align-items:center; gap:4px;">Search Google Flights <span class="material-symbols-outlined" style="font-size:12px;">open_in_new</span></a>
+                  <a href="https://www.google.com/flights?q=flights+from+GYD+to+LHR+on+2026-09-16+one-way+direct" target="_blank" style="color:var(--accent-primary); text-decoration:none; font-weight:600; font-size:12px; display:inline-flex; align-items:center; gap:4px;">Search Google Flights <span class="material-symbols-outlined" style="font-size:12px;">open_in_new</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="flight-card">
+              <div class="flight-badge" style="background:var(--accent-glow); color:var(--accent-primary);">Land Transport</div>
+              <div class="flight-route">
+                <span class="flight-airport">Car Hire</span>
+                <span class="material-symbols-outlined flight-arrow" style="color:var(--accent-primary);">directions_car</span>
+                <span class="flight-airport">SUVs</span>
+              </div>
+              <div class="flight-detail">
+                <div class="flight-detail-item">
+                  <span>Requirement</span>
+                  <span>4 Adults & Suitcases</span>
+                </div>
+                <div class="flight-detail-item">
+                  <span>Class Recommend</span>
+                  <span>SUV / Minivan (Large)</span>
+                </div>
+                <div class="flight-detail-item">
+                  <span>Georgia Hire</span>
+                  <span>Sep 3 - Sep 12 (TBS)</span>
+                </div>
+                <div class="flight-detail-item">
+                  <span>Baku Hire</span>
+                  <span>Sep 12 - Sep 16 (GYD)</span>
+                </div>
+                <div class="flight-detail-item" style="margin-top: 12px; border-top: 1px solid var(--border-color); padding-top: 8px; flex-direction: column; gap: 6px;">
+                  <div style="font-weight:600; font-size:11px; color:var(--text-muted); text-transform:uppercase;">Georgia Search (TBS):</div>
+                  <div style="display:flex; gap:10px; width:100%;">
+                    <a href="https://www.skyscanner.net/carhire/results/95673524/95673524/2026-09-03T10:00/2026-09-12T10:00/30" target="_blank" style="flex:1; text-align:center; padding:6px; background:rgba(59, 130, 246, 0.1); border:1px solid rgba(59, 130, 246, 0.2); color:#FFF; text-decoration:none; border-radius:6px; font-weight:600; font-size:11px; display:inline-flex; align-items:center; justify-content:center; gap:4px; transition:var(--transition-smooth);"><span style="color:#FFF;">Skyscanner</span> <span class="material-symbols-outlined" style="font-size:10px;">open_in_new</span></a>
+                    <a href="https://www.rentalcars.com/search-results?coordinates=&amp;doDay=12&amp;doHour=10&amp;doMinute=0&amp;doMonth=9&amp;doYear=2026&amp;driversAge=30&amp;dropCoordinates=&amp;dropFtsType=iata&amp;dropLocation=TBS&amp;dropLocationIata=&amp;dropLocationName=Tbilisi%20International%20Airport%20%28TBS%29&amp;ftsType=iata&amp;location=TBS&amp;locationIata=&amp;locationName=Tbilisi%20International%20Airport%20%28TBS%29&amp;puDay=3&amp;puHour=10&amp;puMinute=0&amp;puMonth=9&amp;puYear=2026" target="_blank" style="flex:1; text-align:center; padding:6px; background:rgba(245, 158, 11, 0.1); border:1px solid rgba(245, 158, 11, 0.2); color:#FFF; text-decoration:none; border-radius:6px; font-weight:600; font-size:11px; display:inline-flex; align-items:center; justify-content:center; gap:4px; transition:var(--transition-smooth);"><span style="color:#FFF;">Rentalcars</span> <span class="material-symbols-outlined" style="font-size:10px;">open_in_new</span></a>
+                  </div>
+                  <div style="font-weight:600; font-size:11px; color:var(--text-muted); text-transform:uppercase; margin-top:4px;">Baku Search (GYD):</div>
+                  <div style="display:flex; gap:10px; width:100%;">
+                    <a href="https://www.skyscanner.net/carhire/results/95673513/95673513/2026-09-12T10:00/2026-09-16T10:00/30" target="_blank" style="flex:1; text-align:center; padding:6px; background:rgba(59, 130, 246, 0.1); border:1px solid rgba(59, 130, 246, 0.2); color:#FFF; text-decoration:none; border-radius:6px; font-weight:600; font-size:11px; display:inline-flex; align-items:center; justify-content:center; gap:4px; transition:var(--transition-smooth);"><span style="color:#FFF;">Skyscanner</span> <span class="material-symbols-outlined" style="font-size:10px;">open_in_new</span></a>
+                    <a href="https://www.rentalcars.com/search-results?coordinates=&amp;doDay=16&amp;doHour=10&amp;doMinute=0&amp;doMonth=9&amp;doYear=2026&amp;driversAge=30&amp;dropCoordinates=&amp;dropFtsType=iata&amp;dropLocation=GYD&amp;dropLocationIata=&amp;dropLocationName=Heydar%20Aliyev%20International%20Airport%20%28GYD%29&amp;ftsType=iata&amp;location=GYD&amp;locationIata=&amp;locationName=Heydar%20Aliyev%20International%20Airport%20%28GYD%29&amp;puDay=12&amp;puHour=10&amp;puMinute=0&amp;puMonth=9&amp;puYear=2026" target="_blank" style="flex:1; text-align:center; padding:6px; background:rgba(245, 158, 11, 0.1); border:1px solid rgba(245, 158, 11, 0.2); color:#FFF; text-decoration:none; border-radius:6px; font-weight:600; font-size:11px; display:inline-flex; align-items:center; justify-content:center; gap:4px; transition:var(--transition-smooth);"><span style="color:#FFF;">Rentalcars</span> <span class="material-symbols-outlined" style="font-size:10px;">open_in_new</span></a>
+                  </div>
                 </div>
               </div>
             </article>
@@ -203,14 +291,25 @@
                   Arrive at Tbilisi International Airport (TBS) from London. Check into your luxury Old Town apartment, relax, and enjoy your first Georgian dinner with local wine.
                 </p>
                 <div class="transfer-card">
-                  <div class="transfer-header">
-                    <span class="material-symbols-outlined">flight_takeoff</span> Transfer Required
+                  <div class="transfer-header" style="color:var(--info);">
+                    <span class="material-symbols-outlined">flight_takeoff</span> Outbound flight & Airport taxi
                   </div>
                   <div class="transfer-detail">
                     <div class="transfer-label">Mechanism:</div>
                     <div class="transfer-value">Direct Outbound Flight (British Airways, LHR-TBS) + Airport Taxi to Vera Penthouse stay base</div>
                     <div class="transfer-label">Transit Time:</div>
                     <div class="transfer-value">~5h 10m Flight + ~30m Taxi (~5h 40m Total door-to-door transit)</div>
+                  </div>
+                  <div style="margin-top: 10px; border-top: 1px solid rgba(59, 130, 246, 0.15); padding-top: 8px; display: flex; flex-direction: column; gap: 6px;">
+                    <div>
+                      <a href="https://www.google.com/flights?q=flights+from+LHR+to+TBS+on+2026-09-03+one-way+direct" target="_blank" class="experience-link" style="font-size:12px;">Search Google Flights (LHR ➔ TBS) <span class="material-symbols-outlined" style="font-size:12px">open_in_new</span></a>
+                    </div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Georgia Car Hire (Sep 3 - Sep 12, Large SUV for 4 adults & bags):</div>
+                    <div style="display: flex; gap: 8px;">
+                      <a href="https://www.skyscanner.net/carhire/results/95673524/95673524/2026-09-03T10:00/2026-09-12T10:00/30" target="_blank" class="experience-link" style="font-size:12px;">Skyscanner <span class="material-symbols-outlined" style="font-size:12px">open_in_new</span></a>
+                      <span style="color: var(--text-muted)">|</span>
+                      <a href="https://www.rentalcars.com/search-results?coordinates=&amp;doDay=12&amp;doHour=10&amp;doMinute=0&amp;doMonth=9&amp;doYear=2026&amp;driversAge=30&amp;dropCoordinates=&amp;dropFtsType=iata&amp;dropLocation=TBS&amp;dropLocationIata=&amp;dropLocationName=Tbilisi%20International%20Airport%20%28TBS%29&amp;ftsType=iata&amp;location=TBS&amp;locationIata=&amp;locationName=Tbilisi%20International%20Airport%20%28TBS%29&amp;puDay=3&amp;puHour=10&amp;puMinute=0&amp;puMonth=9&amp;puYear=2026" target="_blank" class="experience-link" style="font-size:12px;">Rentalcars.com <span class="material-symbols-outlined" style="font-size:12px">open_in_new</span></a>
+                    </div>
                   </div>
                 </div>
                 <div class="timeline-tags" style="margin-top:12px;">
@@ -377,7 +476,7 @@
                 </div>
                 <div class="experience-box">
                   <div class="experience-header">
-                    <span class="material-symbols-outlined">local_bakery</span> Optional Experience: Tonir Lavash Baking
+                    <span class="material-symbols-outlined">bakery_dining</span> Optional Experience: Tonir Lavash Baking
                   </div>
                   <div class="experience-detail">
                     <div class="experience-desc">
@@ -454,12 +553,12 @@
                   Drive north along the Georgian Military Highway. This is a one-way transfer from your Tbilisi base to your new Kazbegi (Stepantsminda) base. Stop at the turquoise Zhinvali Reservoir, explore the medieval <a href="https://en.wikipedia.org/wiki/Ananuri" target="_blank" style="color:var(--accent-primary); text-decoration:none;">Ananuri Fortress</a>, cross the Jvari Pass, and visit the <a href="https://en.wikipedia.org/wiki/Russia%E2%80%93Georgia_Friendship_Monument" target="_blank" style="color:var(--accent-primary); text-decoration:none;">Gudauri Friendship Monument</a> before checking into your Kazbegi chalet for a 3-night stay.
                 </p>
                 <div class="transfer-card">
-                  <div class="transfer-header">
-                    <span class="material-symbols-outlined">sync_alt</span> Base Shift Transfer (Tbilisi ➔ Kazbegi)
+                  <div class="transfer-header" style="color:var(--info);">
+                    <span class="material-symbols-outlined">directions_car</span> Base Shift Transfer (Tbilisi ➔ Kazbegi)
                   </div>
                   <div class="transfer-detail">
                     <div class="transfer-label">Mechanism:</div>
-                    <div class="transfer-value">Private Driver / Car (One-way transfer along the scenic Georgian Military Highway)</div>
+                    <div class="transfer-value">Self-drive in your hired Georgia SUV (or opt for a Scenic Private Driver)</div>
                     <div class="transfer-label">Transit Time:</div>
                     <div class="transfer-value">~3 hours net driving time (~6 hours total duration including scenic sightseeing breaks)</div>
                   </div>
@@ -593,14 +692,25 @@
                   Drive back down to Tbilisi. Head straight to the airport for your evening flight to Baku, Azerbaijan (1h 10m). Check into your central premium apartment in Baku.
                 </p>
                 <div class="transfer-card">
-                  <div class="transfer-header">
+                  <div class="transfer-header" style="color:var(--info);">
                     <span class="material-symbols-outlined">sync_alt</span> Base Shift Transfer (Kazbegi ➔ Baku)
                   </div>
                   <div class="transfer-detail">
                     <div class="transfer-label">Mechanism:</div>
-                    <div class="transfer-value">Private Transfer to Tbilisi Airport (~2.5h) + Direct Flight (AZAL, TBS-GYD, 1h 10m) + Baku Airport Taxi (~30m)</div>
+                    <div class="transfer-value">Private Transfer/Self-Drive Drop-off at TBS (~2.5h) + Direct Flight (TBS-GYD, 1h 10m) + Baku Airport Transfer</div>
                     <div class="transfer-label">Transit Time:</div>
                     <div class="transfer-value">~6.5 hours total door-to-door transit (including check-in & customs)</div>
+                  </div>
+                  <div style="margin-top: 10px; border-top: 1px solid rgba(59, 130, 246, 0.15); padding-top: 8px; display: flex; flex-direction: column; gap: 6px;">
+                    <div>
+                      <a href="https://www.google.com/flights?q=flights+from+TBS+to+GYD+on+2026-09-12+one-way+direct" target="_blank" class="experience-link" style="font-size:12px;">Search Google Flights (TBS ➔ GYD) <span class="material-symbols-outlined" style="font-size:12px">open_in_new</span></a>
+                    </div>
+                    <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Baku Car Hire (Sep 12 - Sep 16, Large SUV for 4 adults & bags):</div>
+                    <div style="display: flex; gap: 8px;">
+                      <a href="https://www.skyscanner.net/carhire/results/95673513/95673513/2026-09-12T10:00/2026-09-16T10:00/30" target="_blank" class="experience-link" style="font-size:12px;">Skyscanner <span class="material-symbols-outlined" style="font-size:12px">open_in_new</span></a>
+                      <span style="color: var(--text-muted)">|</span>
+                      <a href="https://www.rentalcars.com/search-results?coordinates=&amp;doDay=16&amp;doHour=10&amp;doMinute=0&amp;doMonth=9&amp;doYear=2026&amp;driversAge=30&amp;dropCoordinates=&amp;dropFtsType=iata&amp;dropLocation=GYD&amp;dropLocationIata=&amp;dropLocationName=Heydar%20Aliyev%20International%20Airport%20%28GYD%29&amp;ftsType=iata&amp;location=GYD&amp;locationIata=&amp;locationName=Heydar%20Aliyev%20International%20Airport%20%28GYD%29&amp;puDay=12&amp;puHour=10&amp;puMinute=0&amp;puMonth=9&amp;puYear=2026" target="_blank" class="experience-link" style="font-size:12px;">Rentalcars.com <span class="material-symbols-outlined" style="font-size:12px">open_in_new</span></a>
+                    </div>
                   </div>
                 </div>
                 <div class="timeline-tags" style="margin-top:12px;">
@@ -765,14 +875,17 @@
                   Enjoy your final morning in Baku strolling along the Seaside Boulevard. Board your direct afternoon flight from Heydar Aliyev International Airport (GYD) back to London.
                 </p>
                 <div class="transfer-card">
-                  <div class="transfer-header">
+                  <div class="transfer-header" style="color:var(--info);">
                     <span class="material-symbols-outlined">flight_land</span> Return Transfer (Baku ➔ London)
                   </div>
                   <div class="transfer-detail">
                     <div class="transfer-label">Mechanism:</div>
-                    <div class="transfer-value">Hotel Taxi to Baku Airport (~30m) + Direct Inbound Flight (AZAL, GYD-LHR/LGW, 5h 45m)</div>
+                    <div class="transfer-value">Hotel Taxi/Car Hire Drop-off at GYD (~30m) + Direct Inbound Flight (AZAL, GYD-LHR/LGW, 5h 45m)</div>
                     <div class="transfer-label">Transit Time:</div>
                     <div class="transfer-value">~6 hours 15 mins total transit (excluding airport check-in & customs)</div>
+                  </div>
+                  <div style="margin-top: 10px; border-top: 1px solid rgba(59, 130, 246, 0.15); padding-top: 8px;">
+                    <a href="https://www.google.com/flights?q=flights+from+GYD+to+LHR+on+2026-09-16+one-way+direct" target="_blank" class="experience-link" style="font-size:12px;">Search Google Flights (GYD ➔ LHR) <span class="material-symbols-outlined" style="font-size:12px">open_in_new</span></a>
                   </div>
                 </div>
                 <div class="timeline-tags" style="margin-top:12px;">
@@ -819,8 +932,12 @@
                     <span>3 Bathrooms + Spacious balcony facing Mtatsminda</span>
                   </div>
                   <div class="acc-feature-item">
-                    <span class="material-symbols-outlined acc-feature-icon">distance</span>
-                    <span>Vera District (Walking distance to Rustaveli Avenue)</span>
+                    <span class="material-symbols-outlined acc-feature-icon" style="color: var(--accent-primary);">location_on</span>
+                    <span class="acc-location-click" onclick="focusMapOnLocation('tbilisi')" title="Click to show on map">Vera District (Walking distance to Rustaveli Avenue)</span>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Vera+District+Tbilisi+Georgia" target="_blank" class="acc-gmaps-link" style="margin-left: 8px; color: var(--text-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 2px;" title="Open in Google Maps">
+                      <span style="font-size: 11px;">(Google Maps)</span>
+                      <span class="material-symbols-outlined" style="font-size:10px;">open_in_new</span>
+                    </a>
                   </div>
                 </div>
                 <div class="acc-pricing" style="margin-bottom: 16px;">
@@ -866,8 +983,12 @@
                     <span>Fireplace, outdoor terrace & panoramic views of Gergeti Trinity</span>
                   </div>
                   <div class="acc-feature-item">
-                    <span class="material-symbols-outlined acc-feature-icon">distance</span>
-                    <span>Stepantsminda Central (Easy access to trailheads)</span>
+                    <span class="material-symbols-outlined acc-feature-icon" style="color: var(--accent-primary);">location_on</span>
+                    <span class="acc-location-click" onclick="focusMapOnLocation('kazbegi')" title="Click to show on map">Stepantsminda Central (Easy access to trailheads)</span>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Stepantsminda+Central+Georgia" target="_blank" class="acc-gmaps-link" style="margin-left: 8px; color: var(--text-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 2px;" title="Open in Google Maps">
+                      <span style="font-size: 11px;">(Google Maps)</span>
+                      <span class="material-symbols-outlined" style="font-size:10px;">open_in_new</span>
+                    </a>
                   </div>
                 </div>
                 <div class="acc-pricing" style="margin-bottom: 16px;">
@@ -913,8 +1034,12 @@
                     <span>High-floor balcony facing Caspian Sea, 24/7 Concierge</span>
                   </div>
                   <div class="acc-feature-item">
-                    <span class="material-symbols-outlined acc-feature-icon">distance</span>
-                    <span>Nizami Street (Baku pedestrian center)</span>
+                    <span class="material-symbols-outlined acc-feature-icon" style="color: var(--accent-primary);">location_on</span>
+                    <span class="acc-location-click" onclick="focusMapOnLocation('baku')" title="Click to show on map">Nizami Street (Baku pedestrian center)</span>
+                    <a href="https://www.google.com/maps/search/?api=1&amp;query=Nizami+Street+Baku+Azerbaijan" target="_blank" class="acc-gmaps-link" style="margin-left: 8px; color: var(--text-muted); text-decoration: none; display: inline-flex; align-items: center; gap: 2px;" title="Open in Google Maps">
+                      <span style="font-size: 11px;">(Google Maps)</span>
+                      <span class="material-symbols-outlined" style="font-size:10px;">open_in_new</span>
+                    </a>
                   </div>
                 </div>
                 <div class="acc-pricing" style="margin-bottom: 16px;">
@@ -1010,6 +1135,44 @@
           <div class="spinner"></div>
           <p>Fetching article summary...</p>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Web Chat Assistant -->
+  <div class="chat-widget" id="chat-widget">
+    <button class="chat-trigger" id="chat-trigger" aria-label="Open chat assistant">
+      <span class="material-symbols-outlined">chat_bubble</span>
+    </button>
+    <div class="chat-window" id="chat-window" aria-hidden="true">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-avatar">CG</div>
+          <div class="chat-status-container">
+            <span class="chat-title">Caucasus Guide</span>
+            <span class="chat-status">Online</span>
+          </div>
+        </div>
+        <button class="chat-close-btn" id="chat-close-btn" aria-label="Close chat window">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-message incoming">
+          Hi there! 🇬🇪 🇦🇲 🇦🇿 I'm your Caucasus Travel Assistant. Ask me anything about flights, accommodations, visa rules, or day-by-day activities!
+        </div>
+      </div>
+      <div class="chat-suggestions">
+        <button class="chat-suggestion-pill" data-question="Do I need a visa?">Do I need a visa? 🛂</button>
+        <button class="chat-suggestion-pill" data-question="What is the accommodation budget?">Accommodation Budget 💰</button>
+        <button class="chat-suggestion-pill" data-question="Tell me about flights">Flight Details ✈️</button>
+        <button class="chat-suggestion-pill" data-question="What are the Gori alternatives?">Gori Alternatives 🏰</button>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chat-input" placeholder="Type your question..." aria-label="Type message" />
+        <button class="chat-send-btn" id="chat-send-btn" aria-label="Send message">
+          <span class="material-symbols-outlined" style="font-size: 20px;">send</span>
+        </button>
       </div>
     </div>
   </div>

@@ -13,7 +13,9 @@ const LOCATIONS = {
     name: "Tbilisi, Georgia", 
     desc: "Base for Days 1-6 & Day 10",
     img: "/images/tbilisi.png",
-    wiki: "https://en.wikipedia.org/wiki/Tbilisi"
+    wiki: "https://en.wikipedia.org/wiki/Tbilisi",
+    booking: "https://www.booking.com/searchresults.html?ss=Tbilisi&amp;checkin=2026-09-03&amp;checkout=2026-09-09&amp;group_adults=4&amp;no_rooms=4",
+    airbnb: "https://www.airbnb.com/s/Tbilisi--Georgia/homes?tab_id=home_tab&amp;checkin=2026-09-03&amp;checkout=2026-09-09&amp;adults=4&amp;min_bedrooms=4"
   },
   mtskheta: { 
     coords: [41.8423, 44.7162], 
@@ -82,7 +84,9 @@ const LOCATIONS = {
     name: "Stepantsminda (Kazbegi), Georgia", 
     desc: "Gergeti Trinity Church base (Days 7-9)",
     img: "/images/kazbegi.png",
-    wiki: "https://en.wikipedia.org/wiki/Stepantsminda"
+    wiki: "https://en.wikipedia.org/wiki/Stepantsminda",
+    booking: "https://www.booking.com/searchresults.html?ss=Stepantsminda&amp;checkin=2026-09-09&amp;checkout=2026-09-12&amp;group_adults=4&amp;no_rooms=4",
+    airbnb: "https://www.airbnb.com/s/Stepantsminda--Georgia/homes?tab_id=home_tab&amp;checkin=2026-09-09&amp;checkout=2026-09-12&amp;adults=4&amp;min_bedrooms=4"
   },
   juta: { 
     coords: [42.5786, 44.7431], 
@@ -95,7 +99,9 @@ const LOCATIONS = {
     name: "Baku, Azerbaijan", 
     desc: "Caspian Sea Base (Days 10-14)",
     img: "/images/baku.png",
-    wiki: "https://en.wikipedia.org/wiki/Baku"
+    wiki: "https://en.wikipedia.org/wiki/Baku",
+    booking: "https://www.booking.com/searchresults.html?ss=Baku&amp;checkin=2026-09-12&amp;checkout=2026-09-16&amp;group_adults=4&amp;no_rooms=4",
+    airbnb: "https://www.airbnb.com/s/Baku--Azerbaijan/homes?tab_id=home_tab&amp;checkin=2026-09-12&amp;checkout=2026-09-16&amp;adults=4&amp;min_bedrooms=4"
   },
   absheron: { 
     coords: [40.4522, 50.0089], 
@@ -214,6 +220,23 @@ function initMap() {
     
     if (loc.wiki) {
       popupHTML += `<a href="${loc.wiki}" target="_blank" class="popup-wiki-link" style="color:#F59E0B; text-decoration:none; font-size:11px; font-weight:600; display:inline-flex; align-items:center; gap:4px;">Read Wikipedia <span class="material-symbols-outlined" style="font-size:12px;">open_in_new</span></a>`;
+    }
+
+    if (loc.booking || loc.airbnb) {
+      popupHTML += `<div style="margin-top: 10px; border-top: 1px solid var(--border-color); padding-top: 8px; display: flex; flex-direction: column; gap: 4px;">`;
+      popupHTML += `<div style="font-size: 10px; color: #94A3B8; font-weight: 600; text-transform: uppercase;">Accommodation Stays:</div>`;
+      popupHTML += `<div style="display: flex; gap: 8px;">`;
+      if (loc.booking) {
+        popupHTML += `<a href="${loc.booking}" target="_blank" style="color:#3B82F6; text-decoration:none; font-size:11px; font-weight:600; display:inline-flex; align-items:center; gap:2px;">Booking.com <span class="material-symbols-outlined" style="font-size:10px;">open_in_new</span></a>`;
+      }
+      if (loc.booking && loc.airbnb) {
+        popupHTML += `<span style="color:#475569; font-size:11px;">|</span>`;
+      }
+      if (loc.airbnb) {
+        popupHTML += `<a href="${loc.airbnb}" target="_blank" style="color:#F59E0B; text-decoration:none; font-size:11px; font-weight:600; display:inline-flex; align-items:center; gap:2px;">Airbnb <span class="material-symbols-outlined" style="font-size:10px;">open_in_new</span></a>`;
+      }
+      popupHTML += `</div>`;
+      popupHTML += `</div>`;
     }
     
     popupHTML += `</div>`;
@@ -385,6 +408,7 @@ function focusOnDayLocations(dayNum) {
 // Wikipedia Modal Intercept Logic
 document.addEventListener("DOMContentLoaded", () => {
   initWikiModal();
+  initWebChat();
 });
 
 function initWikiModal() {
@@ -496,3 +520,175 @@ function closeWikiModal() {
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
 }
+
+function initWebChat() {
+  const widget = document.getElementById("chat-widget");
+  const trigger = document.getElementById("chat-trigger");
+  const windowEl = document.getElementById("chat-window");
+  const closeBtn = document.getElementById("chat-close-btn");
+  const input = document.getElementById("chat-input");
+  const sendBtn = document.getElementById("chat-send-btn");
+  const messagesContainer = document.getElementById("chat-messages");
+  const suggestions = document.querySelectorAll(".chat-suggestion-pill");
+
+  if (!widget || !trigger || !windowEl || !closeBtn || !input || !sendBtn || !messagesContainer) return;
+
+  // Toggle chat window
+  trigger.addEventListener("click", () => {
+    const isOpen = windowEl.classList.contains("open");
+    if (isOpen) {
+      closeChat();
+    } else {
+      openChat();
+    }
+  });
+
+  closeBtn.addEventListener("click", closeChat);
+
+  function openChat() {
+    windowEl.classList.add("open");
+    windowEl.setAttribute("aria-hidden", "false");
+    trigger.style.transform = "scale(0) rotate(180deg)";
+    setTimeout(() => {
+      input.focus();
+    }, 300);
+  }
+
+  function closeChat() {
+    windowEl.classList.remove("open");
+    windowEl.setAttribute("aria-hidden", "true");
+    trigger.style.transform = "scale(1) rotate(0)";
+  }
+
+  // Handle Send Message
+  sendBtn.addEventListener("click", handleUserSend);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") handleUserSend();
+  });
+
+  // Handle Suggestions Click
+  suggestions.forEach(pill => {
+    pill.addEventListener("click", () => {
+      const q = pill.getAttribute("data-question");
+      sendUserMessage(q);
+    });
+  });
+
+  function handleUserSend() {
+    const text = input.value.trim();
+    if (!text) return;
+    sendUserMessage(text);
+    input.value = "";
+  }
+
+  function sendUserMessage(text) {
+    // Append user message
+    appendMessage(text, "outgoing");
+    
+    // Auto scroll
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+    // Show typing indicator
+    showTypingIndicator();
+
+    // Generate reply after brief organic delay
+    setTimeout(() => {
+      removeTypingIndicator();
+      const reply = generateChatbotReply(text);
+      appendMessage(reply, "incoming");
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }, 1000);
+  }
+
+  function appendMessage(text, direction) {
+    const msg = document.createElement("div");
+    msg.className = `chat-message ${direction}`;
+    msg.innerHTML = text;
+    messagesContainer.appendChild(msg);
+  }
+
+  let typingIndicatorEl = null;
+
+  function showTypingIndicator() {
+    if (typingIndicatorEl) return;
+    const msg = document.createElement("div");
+    msg.className = "chat-message incoming";
+    msg.id = "chat-typing-indicator";
+    msg.innerHTML = `
+      <div class="typing-indicator">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>
+    `;
+    messagesContainer.appendChild(msg);
+    typingIndicatorEl = msg;
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  }
+
+  function removeTypingIndicator() {
+    if (typingIndicatorEl) {
+      typingIndicatorEl.remove();
+      typingIndicatorEl = null;
+    }
+  }
+
+  function generateChatbotReply(text) {
+    const q = text.toLowerCase();
+
+    if (q.includes("visa") || q.includes("passport") || q.includes("border") || q.includes("entry") || q.includes("sadakhlo") || q.includes("asan")) {
+      return "For UK passport holders:<br/>• **Georgia:** Visa-free for up to 1 year.<br/>• **Armenia:** Visa-free for up to 180 days.<br/>• **Azerbaijan:** **ASAN e-Visa is REQUIRED.** Apply online 1-2 weeks prior ($26, takes 3 business days).<br/>• **Armenia Excursion:** The Sadakhlo border is crossed by road; we recommend an organized tour to handle border control smoothly.";
+    }
+    
+    if (q.includes("hotel") || q.includes("stay") || q.includes("accommodation") || q.includes("airbnb") || q.includes("booking") || q.includes("apartment") || q.includes("budget") || q.includes("bedroom") || q.includes("cost") || q.includes("price")) {
+      return "We have selected three curated 4-bedroom apartments/chalets (since you are 4 adults wanting separate bedrooms):<br/>1. **Tbilisi:** Vera Luxury Penthouse (~£240/night, 6 nights).<br/>2. **Kazbegi:** Kazbegi Mountain Chalet (~£310/night, 3 nights).<br/>3. **Baku:** Nizami Street Duplex (~£280/night, 4 nights).<br/>• **Budget Check:** The total cost stays well below your £125 per person per night limit (£500/night total group budget).";
+    }
+
+    if (q.includes("flight") || q.includes("plane") || q.includes("airline") || q.includes("airport") || q.includes("direct") || q.includes("lhr") || q.includes("tbs") || q.includes("gyd")) {
+      return "Your flights are all direct:<br/>• **Outbound (Sep 3):** British Airways LHR ➔ TBS (5h 10m).<br/>• **Connection (Sep 12):** Azerbaijan Airlines (AZAL) TBS ➔ GYD (1h 10m).<br/>• **Inbound (Sep 16):** Azerbaijan Airlines (AZAL) GYD ➔ LHR (5h 45m).<br/>You can search/verify dates using the flight cards at the top of the dashboard.";
+    }
+
+    if (q.includes("gori") || q.includes("stalin") || q.includes("museum") || q.includes("fortress") || q.includes("war heroes") || q.includes("ateni") || q.includes("sioni")) {
+      return "Instead of the controversial Stalin Museum, Day 4 features excellent alternatives in Gori:<br/>• **Gori Fortress:** Climb the medieval citadel for panoramic views.<br/>• **War Heroes Memorial:** Inspect the massive circle of bronze warrior statues.<br/>• **Ateni Sioni:** A 7th-century church south of Gori in a wine valley.<br/>• **Sergi Makalatia Ethnographic Museum:** Explores Shida Kartli archaeological history.";
+    }
+
+    if (q.includes("armenia") || q.includes("haghpat") || q.includes("sanahin") || q.includes("debed") || q.includes("monasteries") || q.includes("lavash")) {
+      return "On Day 5, you take a private minivan excursion to northern Armenia. You will visit the UNESCO monasteries of **Haghpat** and **Sanahin** in the Debed Canyon. You can also participate in a hands-on **Tonir Lavash baking experience** at a local family estate!";
+    }
+
+    if (q.includes("kazbegi") || q.includes("stepantsminda") || q.includes("gergeti") || q.includes("juta") || q.includes("chaukhi") || q.includes("mountain") || q.includes("hike") || q.includes("hiking") || q.includes("paragliding")) {
+      return "For your mountain base stay (Days 7–9):<br/>• **Day 7:** Travel the Georgian Military Highway, stopping at Ananuri and Gudauri.<br/>• **Day 8:** Gergeti Trinity Church (option for horseback riding or paragliding!).<br/>• **Day 9:** Hike Juta Valley to Mt. Chaukhi (option for wild herb tea foraging).";
+    }
+
+    if (q.includes("baku") || q.includes("azerbaijan") || q.includes("absheron") || q.includes("gobustan") || q.includes("mud") || q.includes("volcano") || q.includes("carpet") || q.includes("tea") || q.includes("fire")) {
+      return "For your Baku base stay (Days 10–14):<br/>• **Day 11:** Explore Old Town, try a carpet weaving masterclass, and attend a traditional Armudu tea ceremony.<br/>• **Day 12:** Absheron Fire Temple & Yanar Dag.<br/>• **Day 13:** Gobustan petroglyphs and bubbling mud volcano therapy.";
+    }
+
+    if (q.includes("date") || q.includes("dates") || q.includes("september") || q.includes("when")) {
+      return "The trip is planned for **September 3, 2026** to **September 16, 2026** (14 days total). This aligns with the earliest availability and offers pleasant autumn weather across the Caucasus.";
+    }
+
+    if (q.includes("currency") || q.includes("money") || q.includes("lari") || q.includes("dram") || q.includes("manat") || q.includes("gel") || q.includes("amd") || q.includes("azn")) {
+      return "Currencies:<br/>• **Georgia:** Lari (GEL)<br/>• **Armenia:** Dram (AMD)<br/>• **Azerbaijan:** Manat (AZN)<br/>*Tip: Cards are widely accepted in Tbilisi/Baku, but carry cash for Kazbegi and Armenia.*";
+    }
+
+    return "I'm not sure about that specific detail, but I can help you with flights, accommodations, visa rules, stay bases, and day-by-day activities. Try asking about 'visas', 'accommodations', 'Gori', or 'Baku'!";
+  }
+}
+
+// Global function to zoom and focus map on base locations
+window.focusMapOnLocation = function(key) {
+  const loc = LOCATIONS[key];
+  const marker = markers[key];
+  if (loc && marker) {
+    // Zoom and center map to this location
+    map.setView(loc.coords, 14); // zoom level 14 for detail
+    // Open the marker's popup
+    marker.openPopup();
+    // Scroll map container into view if on mobile/small screen
+    const mapContainer = document.getElementById("map-container");
+    if (mapContainer) {
+      mapContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+};
