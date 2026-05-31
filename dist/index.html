@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Caucasus Route — London, Georgia, Armenia & Azerbaijan</title>
+  <meta name="description" content="An interactive luxury travel dashboard for a 14-day holiday trip across Georgia, Armenia, and Azerbaijan from London. Features flights, custom map, and accommodations." />
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>" />
+
+  <!-- Stylesheet -->
+  <script type="module" crossorigin src="/assets/index-jIRy_r2u.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CQimVAUM.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- App Header -->
+    <header class="app-header">
+      <div class="brand">
+        <span class="material-symbols-outlined brand-icon">explore</span>
+        <span class="brand-name">CAUCASUS ROUTE</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#itinerary" class="nav-link active">Itinerary</a>
+        <a href="#accommodations" class="nav-link">Stays</a>
+        <a href="#transport" class="nav-link">Flights & Transports</a>
+        <a href="#visa-info" class="nav-link">Practical Tips</a>
+      </nav>
+    </header>
+
+    <!-- Main Split View -->
+    <main class="main-content">
+      
+      <!-- Left Panel: Scrollable Itinerary, Stays, and Logistics -->
+      <section class="scroll-panel">
+        
+        <!-- Hero Section -->
+        <header class="hero">
+          <div class="hero-badge">
+            <span class="material-symbols-outlined" style="font-size:14px">military_tech</span> Premium Travel Dashboard
+          </div>
+          <h1>Caucasus <span>Grand Explorer</span></h1>
+          <p class="hero-subtitle">
+            A bespoke 14-day overland journey across Georgia, Armenia, and Azerbaijan. Curated for 4 adults with premium accommodations, direct flights, and private border excursions.
+          </p>
+          
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="material-symbols-outlined stat-icon">calendar_today</span>
+              <div>
+                <div class="stat-val">14 Days</div>
+                <div class="stat-label">Duration</div>
+              </div>
+            </div>
+            <div class="stat-item">
+              <span class="material-symbols-outlined stat-icon">public</span>
+              <div>
+                <div class="stat-val">3 Countries</div>
+                <div class="stat-label">Visited</div>
+              </div>
+            </div>
+            <div class="stat-item">
+              <span class="material-symbols-outlined stat-icon">hotel</span>
+              <div>
+                <div class="stat-val">3 Bases</div>
+                <div class="stat-label">Accommodation</div>
+              </div>
+            </div>
+            <div class="stat-item">
+              <span class="material-symbols-outlined stat-icon">payments</span>
+              <div>
+                <div class="stat-val">£125 pn</div>
+                <div class="stat-label">Per Person Budget</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Transport & Flight info -->
+        <section id="transport" style="margin-bottom: 60px;">
+          <h2 class="section-title">
+            <span class="material-symbols-outlined">flight_takeoff</span> Flights & Connecting Transports
+          </h2>
+          <div class="card-grid">
+            
+            <article class="flight-card">
+              <div class="flight-badge">Outbound</div>
+              <div class="flight-route">
+                <span class="flight-airport">LHR</span>
+                <span class="material-symbols-outlined flight-arrow">trending_flat</span>
+                <span class="flight-airport">TBS</span>
+              </div>
+              <div class="flight-detail">
+                <div class="flight-detail-item">
+                  <span>Airline</span>
+                  <span>British Airways</span>
+                </div>
+                <div class="flight-detail-item">
+                  <span>Connection</span>
+                  <span>Direct (Non-stop)</span>
+                </div>
+                <div class="flight-detail-item">
+                  <span>Duration</span>
+                  <span>5h 10m</span>
+                </div>
+                <div class="flight-detail-item">
+                  <span>Schedule</span>
+                  <span>4x per week</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="flight-card">
+              <div class="flight-badge">Connection</div>
+              <div class="flight-route">
+                <span class="flight-airport">TBS</span>
+                <span class="material-symbols-outlined flight-arrow">trending_flat</span>
+                <span class="flight-airport">GYD</span>
+              </div>
+              <div class="flight-detail">
+                <div class="flight-detail-item">
+                  <span>Airline</span>
+                  <span>Azerbaijan Airlines</span>
+                </div>
+                <div class="flight-detail-item">
+                  <span>Connection</span>
+                  <span>Direct (Non-stop)</span>
+                </div>
+                <div class="flight-detail-item">
+                  <span>Duration</span>
+                  <span>1h 10m</span>
+                </div>
+                <div class="flight-detail-item">
+                  <span>Schedule</span>
+                  <span>Multiple Daily</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="flight-card">
+              <div class="flight-badge">Inbound</div>
+              <div class="flight-route">
+                <span class="flight-airport">GYD</span>
+                <span class="material-symbols-outlined flight-arrow">trending_flat</span>
+                <span class="flight-airport">LHR/LGW</span>
+              </div>
+              <div class="flight-detail">
+                <div class="flight-detail-item">
+                  <span>Airline</span>
+                  <span>Azerbaijan Airlines</span>
+                </div>
+                <div class="flight-detail-item">
+                  <span>Connection</span>
+                  <span>Direct (Non-stop)</span>
+                </div>
+                <div class="flight-detail-item">
+                  <span>Duration</span>
+                  <span>5h 45m</span>
+                </div>
+                <div class="flight-detail-item">
+                  <span>Schedule</span>
+                  <span>Weekly schedules</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- Itinerary Timeline -->
+        <section id="itinerary">
+          <h2 class="section-title">
+            <span class="material-symbols-outlined">map</span> Interactive Day-by-Day Route
+          </h2>
+          <p style="color:var(--text-secondary); margin-bottom: 24px; font-size:14px">
+            Select any day to display its path and focus the map on key sites.
+          </p>
+
+          <div class="timeline">
+            
+            <!-- Day 1 -->
+            <div class="timeline-day" data-day="1">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 1</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Tbilisi
+                  </div>
+                </div>
+                <h3 class="timeline-title">Arrive in Tbilisi</h3>
+                <p class="timeline-desc">
+                  Arrive at Tbilisi International Airport (TBS) from London. Check into your luxury Old Town apartment, relax, and enjoy your first Georgian dinner with local wine.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Flight</span>
+                  <span class="timeline-tag">Transfer</span>
+                  <span class="timeline-tag">Tbilisi</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="timeline-day" data-day="2">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 2</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Tbilisi
+                  </div>
+                </div>
+                <h3 class="timeline-title">Explore Tbilisi Old Town</h3>
+                <p class="timeline-desc">
+                  Spend the day walking through Old Tbilisi. Visit the Narikala Fortress via cable car, relax in the Sulphur Baths, explore modern Shardeni Street, and drive up to the massive Chronicles of Georgia monument.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Sightseeing</span>
+                  <span class="timeline-tag">Historic Baths</span>
+                  <span class="timeline-tag">Chronicles</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="timeline-day" data-day="3">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 3</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Tbilisi
+                  </div>
+                </div>
+                <h3 class="timeline-title">Excursion to Mtskheta</h3>
+                <p class="timeline-desc">
+                  Travel to the ancient capital of Georgia. Visit the hilltop Jvari Monastery (stunning confluence of Aragvi and Mtkvari rivers) and the Svetitskhoveli Cathedral, a focal point of Georgian Orthodoxy.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Mtskheta</span>
+                  <span class="timeline-tag">UNESCO</span>
+                  <span class="timeline-tag">Short Drive</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 4 -->
+            <div class="timeline-day" data-day="4">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 4</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Tbilisi
+                  </div>
+                </div>
+                <h3 class="timeline-title">Uplistsikhe Cave Town & Gori</h3>
+                <p class="timeline-desc">
+                  Explore the fascinating ancient rock-hewn town of Uplistsikhe, dating back to the early Iron Age. On the return trip, stop in Gori to optionally visit the museum of Joseph Stalin.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Cave Town</span>
+                  <span class="timeline-tag">History</span>
+                  <span class="timeline-tag">Gori</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 5 -->
+            <div class="timeline-day" data-day="5">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 5</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Tbilisi
+                  </div>
+                </div>
+                <h3 class="timeline-title">Armenia Monastery Day Trip</h3>
+                <p class="timeline-desc">
+                  An organized excursion across the Sadakhlo border. Explore the stunning UNESCO World Heritage site monasteries of Haghpat and Sanahin in the Debed Canyon region of northern Armenia. Return to Tbilisi in the evening.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Armenia</span>
+                  <span class="timeline-tag">Organized Tour</span>
+                  <span class="timeline-tag">Monasteries</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 6 -->
+            <div class="timeline-day" data-day="6">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 6</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Tbilisi
+                  </div>
+                </div>
+                <h3 class="timeline-title">Free day in Tbilisi</h3>
+                <p class="timeline-desc">
+                  Enjoy a relaxed day. We recommend checking out the Dry Bridge Flea Market, booking a local food and wine tasting tour, or visiting the National Gallery.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Leisure</span>
+                  <span class="timeline-tag">Food Tour</span>
+                  <span class="timeline-tag">Flea Market</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 7 -->
+            <div class="timeline-day" data-day="7">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 7</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Kazbegi
+                  </div>
+                </div>
+                <h3 class="timeline-title">Drive the Georgian Military Highway</h3>
+                <p class="timeline-desc">
+                  Head north towards the High Caucasus. Stop at the turquoise Zhinvali Reservoir, explore the medieval Ananuri Fortress, cross the Jvari Pass, and visit the Gudauri Friendship Monument. Reach Stepantsminda.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Mountain Drive</span>
+                  <span class="timeline-tag">Fortress</span>
+                  <span class="timeline-tag">Gudauri</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 8 -->
+            <div class="timeline-day" data-day="8">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 8</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Kazbegi
+                  </div>
+                </div>
+                <h3 class="timeline-title">Gergeti Trinity Church Hike/4x4</h3>
+                <p class="timeline-desc">
+                  Ascend to the iconic Gergeti Trinity Church, perched dramatically at 2,170 meters against the backdrop of Mount Kazbek (5,054m). Choose to hike up or hire a local 4x4.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Hiking</span>
+                  <span class="timeline-tag">Holy Site</span>
+                  <span class="timeline-tag">Gergeti</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 9 -->
+            <div class="timeline-day" data-day="9">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 9</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Kazbegi
+                  </div>
+                </div>
+                <h3 class="timeline-title">Hike in Juta Valley</h3>
+                <p class="timeline-desc">
+                  Take a short drive to the remote village of Juta and hike into the valley. Marvel at the dramatic, jagged peaks of Mt. Chaukhi, often called the "Dolomites of Georgia".
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Alpine Hike</span>
+                  <span class="timeline-tag">Scenery</span>
+                  <span class="timeline-tag">Chaukhi</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 10 -->
+            <div class="timeline-day" data-day="10">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 10</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Baku
+                  </div>
+                </div>
+                <h3 class="timeline-title">Return to Tbilisi & Fly to Baku</h3>
+                <p class="timeline-desc">
+                  Drive back down to Tbilisi. Head straight to the airport for your evening flight to Baku, Azerbaijan (1h 10m). Check into your central premium apartment in Baku.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Drive</span>
+                  <span class="timeline-tag">Flight</span>
+                  <span class="timeline-tag">Baku</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 11 -->
+            <div class="timeline-day" data-day="11">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 11</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Baku
+                  </div>
+                </div>
+                <h3 class="timeline-title">Explore Baku Inner City (Icherisheher)</h3>
+                <p class="timeline-desc">
+                  Explore Icherisheher (Old Town). Visit the Maiden Tower, the Palace of the Shirvanshahs, and modern architectural marvels like the Heydar Aliyev Centre and the Flame Towers.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Baku City</span>
+                  <span class="timeline-tag">Maiden Tower</span>
+                  <span class="timeline-tag">Shirvanshahs</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 12 -->
+            <div class="timeline-day" data-day="12">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 12</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Baku
+                  </div>
+                </div>
+                <h3 class="timeline-title">Absheron Peninsula Fire Tour</h3>
+                <p class="timeline-desc">
+                  Explore the land of fire. Visit Ateshgah Fire Temple, a historic place of worship for Zoroastrians and Hindus, and Yanar Dag (Burning Mountain), where natural gas vents burn constantly.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Absheron</span>
+                  <span class="timeline-tag">Fire Temple</span>
+                  <span class="timeline-tag">Yanar Dag</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 13 -->
+            <div class="timeline-day" data-day="13">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 13</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">home</span> Base: Baku
+                  </div>
+                </div>
+                <h3 class="timeline-title">Gobustan Mud Volcanoes & Rock Art</h3>
+                <p class="timeline-desc">
+                  Visit Gobustan National Park to see ancient petroglyphs (rock carvings dating back 40,000 years). Then, drive to the bizarre, bubbling mud volcanoes nearby.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Petroglyphs</span>
+                  <span class="timeline-tag">Mud Volcanoes</span>
+                  <span class="timeline-tag">Caspian Coast</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Day 14 -->
+            <div class="timeline-day" data-day="14">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <span class="day-number">Day 14</span>
+                  <div class="day-base">
+                    <span class="material-symbols-outlined day-base-icon">flight_land</span> Return to London
+                  </div>
+                </div>
+                <h3 class="timeline-title">Fly Baku to London</h3>
+                <p class="timeline-desc">
+                  Enjoy your final morning in Baku strolling along the Seaside Boulevard. Board your direct afternoon flight from Heydar Aliyev International Airport (GYD) back to London.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-tag">Flight</span>
+                  <span class="timeline-tag">Direct</span>
+                  <span class="timeline-tag">Return Home</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Accommodations Hub -->
+        <section id="accommodations" style="margin-bottom: 60px;">
+          <h2 class="section-title">
+            <span class="material-symbols-outlined">apartment</span> Curated Apartments & Villas
+          </h2>
+          <p style="color:var(--text-secondary); margin-bottom: 24px; font-size:14px">
+            Selected properties with 4 separate bedrooms, accommodating 4 adults, under the budget of £125/person/night (£500/night total).
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:24px">
+            
+            <article class="accommodation-card">
+              <div class="acc-header">
+                <div>
+                  <div class="acc-destination">Tbilisi Base (6 Nights)</div>
+                  <h3 class="acc-title">Vera Luxury Penthouse</h3>
+                </div>
+                <div class="acc-nights">6 nights</div>
+              </div>
+              <div class="acc-body">
+                <div class="acc-features">
+                  <div class="acc-feature-item">
+                    <span class="material-symbols-outlined acc-feature-icon">hotel</span>
+                    <span>4 Double Bedrooms (all separate private rooms)</span>
+                  </div>
+                  <div class="acc-feature-item">
+                    <span class="material-symbols-outlined acc-feature-icon">bathtub</span>
+                    <span>3 Bathrooms + Spacious balcony facing Mtatsminda</span>
+                  </div>
+                  <div class="acc-feature-item">
+                    <span class="material-symbols-outlined acc-feature-icon">distance</span>
+                    <span>Vera District (Walking distance to Rustaveli Avenue)</span>
+                  </div>
+                </div>
+                <div class="acc-pricing">
+                  <div>
+                    <span class="price-label">ESTIMATED COST</span>
+                    <div class="price-value">
+                      <span class="price-per-night">£240 pn</span>
+                    </div>
+                  </div>
+                  <div style="text-align:right">
+                    <span class="price-label">TOTAL GROUP COST (6 NIGHTS)</span>
+                    <div class="price-value">
+                      <span class="price-total">£1,440</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="accommodation-card">
+              <div class="acc-header">
+                <div>
+                  <div class="acc-destination">Kazbegi Base (3 Nights)</div>
+                  <h3 class="acc-title">Kazbegi Mountain Chalet</h3>
+                </div>
+                <div class="acc-nights">3 nights</div>
+              </div>
+              <div class="acc-body">
+                <div class="acc-features">
+                  <div class="acc-feature-item">
+                    <span class="material-symbols-outlined acc-feature-icon">hotel</span>
+                    <span>4 Bedrooms (Chalet configuration with alpine views)</span>
+                  </div>
+                  <div class="acc-feature-item">
+                    <span class="material-symbols-outlined acc-feature-icon">fireplace</span>
+                    <span>Fireplace, outdoor terrace & panoramic views of Gergeti Trinity</span>
+                  </div>
+                  <div class="acc-feature-item">
+                    <span class="material-symbols-outlined acc-feature-icon">distance</span>
+                    <span>Stepantsminda Central (Easy access to trailheads)</span>
+                  </div>
+                </div>
+                <div class="acc-pricing">
+                  <div>
+                    <span class="price-label">ESTIMATED COST</span>
+                    <div class="price-value">
+                      <span class="price-per-night">£310 pn</span>
+                    </div>
+                  </div>
+                  <div style="text-align:right">
+                    <span class="price-label">TOTAL GROUP COST (3 NIGHTS)</span>
+                    <div class="price-value">
+                      <span class="price-total">£930</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="accommodation-card">
+              <div class="acc-header">
+                <div>
+                  <div class="acc-destination">Baku Base (4 Nights)</div>
+                  <h3 class="acc-title">Premium Nizami Street Duplex</h3>
+                </div>
+                <div class="acc-nights">4 nights</div>
+              </div>
+              <div class="acc-body">
+                <div class="acc-features">
+                  <div class="acc-feature-item">
+                    <span class="material-symbols-outlined acc-feature-icon">hotel</span>
+                    <span>4 Double Bedrooms (all air-conditioned, essential for Baku)</span>
+                  </div>
+                  <div class="acc-feature-item">
+                    <span class="material-symbols-outlined acc-feature-icon">apartment</span>
+                    <span>High-floor balcony facing Caspian Sea, 24/7 Concierge</span>
+                  </div>
+                  <div class="acc-feature-item">
+                    <span class="material-symbols-outlined acc-feature-icon">distance</span>
+                    <span>Nizami Street (Baku pedestrian center)</span>
+                  </div>
+                </div>
+                <div class="acc-pricing">
+                  <div>
+                    <span class="price-label">ESTIMATED COST</span>
+                    <div class="price-value">
+                      <span class="price-per-night">£280 pn</span>
+                    </div>
+                  </div>
+                  <div style="text-align:right">
+                    <span class="price-label">TOTAL GROUP COST (4 NIGHTS)</span>
+                    <div class="price-value">
+                      <span class="price-total">£1,120</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <!-- Practical Logistics Hub -->
+        <section id="visa-info" class="info-section">
+          <h2 class="section-title">
+            <span class="material-symbols-outlined">assignment_turned_in</span> Practical Information & Logistics
+          </h2>
+          
+          <div class="info-grid">
+            
+            <div class="info-item">
+              <h3><span class="material-symbols-outlined">gavel</span> UK Visa Requirements</h3>
+              <ul>
+                <li><strong>Georgia:</strong> Visa-free for up to 1 year.</li>
+                <li><strong>Armenia:</strong> Visa-free for up to 180 days.</li>
+                <li><strong>Azerbaijan:</strong> <strong style="color:var(--accent-primary)">ASAN e-Visa required.</strong> Apply online 1-2 weeks prior. Takes 3 business days, costs ~$26.</li>
+              </ul>
+            </div>
+
+            <div class="info-item">
+              <h3><span class="material-symbols-outlined">directions_bus</span> Armenia Day Excursion</h3>
+              <p>
+                To cross borders between Georgia and Armenia seamlessly, we recommend booking a private guided excursion with an established operator like <strong>Gamarjoba Georgia Tours</strong>. They supply:
+              </p>
+              <ul style="margin-top:8px">
+                <li>Professional driver & crossing assistance.</li>
+                <li>Guided tours of Haghpat & Sanahin.</li>
+                <li>Homemade lunch at a local Armenian estate.</li>
+              </ul>
+            </div>
+
+            <div class="info-item">
+              <h3><span class="material-symbols-outlined">currency_exchange</span> Currencies</h3>
+              <ul>
+                <li><strong>Georgia:</strong> Georgian Lari (GEL)</li>
+                <li><strong>Armenia:</strong> Armenian Dram (AMD)</li>
+                <li><strong>Azerbaijan:</strong> Azerbaijani Manat (AZN)</li>
+                <li><em>Tip: Card payments are widespread in Tbilisi and Baku, but cash is essential in Kazbegi and Armenia.</em></li>
+              </ul>
+            </div>
+
+          </div>
+        </section>
+
+        <footer class="app-footer">
+          <p>© 2026 Caucasus Grand Explorer Website Plan.</p>
+          <p>Created with premium dark-matter UI styles & interactive GPS mapping.</p>
+        </footer>
+
+      </section>
+
+      <!-- Right Panel: Fixed Map (Leaflet.js) -->
+      <section class="map-panel">
+        <div id="map-container"></div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Leaflet.js Dependency -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Application JS Code -->
+</body>
+</html>
