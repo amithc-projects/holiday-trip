@@ -754,3 +754,153 @@ body {
     flex: 1 1 40%;
   }
 }
+
+/* Wikipedia Preview Modal Styles */
+.wiki-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(9, 12, 22, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.wiki-modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wiki-modal-content {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 550px;
+  max-height: 85vh;
+  position: relative;
+  overflow-y: auto;
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  padding: 30px;
+}
+
+.wiki-modal-overlay.open .wiki-modal-content {
+  transform: scale(1);
+}
+
+.wiki-modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.wiki-modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--accent-primary);
+}
+
+/* Modal Content Elements */
+.wiki-modal-title {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 16px;
+  padding-right: 30px;
+}
+
+.wiki-modal-img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.wiki-modal-extract {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.wiki-modal-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+  color: var(--bg-primary);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: var(--transition-smooth);
+}
+
+.wiki-modal-cta:hover {
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+/* Spinner and Loading */
+.wiki-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  gap: 16px;
+  color: var(--text-secondary);
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(245, 158, 11, 0.1);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.wiki-error {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.wiki-error-icon {
+  font-size: 48px;
+  color: #EF4444;
+  margin-bottom: 12px;
+}
+
+.wiki-error p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 20px;
+}

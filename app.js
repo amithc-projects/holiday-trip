@@ -1,21 +1,96 @@
 /* app.js - Interactive Leaflet Map & Timeline Sync */
 
-// Coordinates database for itinerary locations
+// Coordinates database for itinerary locations with Wikipedia articles and images
 const LOCATIONS = {
-  london: { coords: [51.5074, -0.1278], name: "London, UK", desc: "Departure & Return point" },
-  tbilisi: { coords: [41.7151, 44.8271], name: "Tbilisi, Georgia", desc: "Base for Days 1-6 & Day 10" },
-  mtskheta: { coords: [41.8423, 44.7162], name: "Mtskheta, Georgia", desc: "Jvari Monastery & Svetitskhoveli" },
-  uplistsikhe: { coords: [41.9615, 44.2081], name: "Uplistsikhe & Gori, Georgia", desc: "Ancient Cave Town & Stalin Museum" },
-  armenia_border: { coords: [41.2223, 44.8329], name: "Sadakhlo Border Crossing", desc: "Georgia-Armenia border control" },
-  haghpat: { coords: [41.0938, 44.7120], name: "Haghpat Monastery, Armenia", desc: "UNESCO World Heritage site in Debed Canyon" },
-  sanahin: { coords: [41.0872, 44.6821], name: "Sanahin Monastery, Armenia", desc: "Ancient medieval school & library" },
-  ananuri: { coords: [42.1633, 44.7025], name: "Ananuri Fortress, Georgia", desc: "Scenic complex on the Aragvi River" },
-  gudauri: { coords: [42.4925, 44.4719], name: "Friendship Monument, Gudauri", desc: "Soviet-Georgian Friendship view" },
-  kazbegi: { coords: [42.6593, 44.6433], name: "Stepantsminda (Kazbegi), Georgia", desc: "Gergeti Trinity Church base (Days 7-9)" },
-  juta: { coords: [42.5786, 44.7431], name: "Juta Valley, Georgia", desc: "Dramatic mountain hikes" },
-  baku: { coords: [40.4093, 49.8671], name: "Baku, Azerbaijan", desc: "Caspian Sea Base (Days 10-14)" },
-  absheron: { coords: [40.4522, 50.0089], name: "Ateshgah & Yanar Dag, Azerbaijan", desc: "Fire Temple & Burning Mountain" },
-  gobustan: { coords: [40.1167, 49.3833], name: "Gobustan Mud Volcanoes", desc: "Unusual mud craters & rock art" }
+  london: { 
+    coords: [51.5074, -0.1278], 
+    name: "London, UK", 
+    desc: "Departure & Return point",
+    wiki: "https://en.wikipedia.org/wiki/London"
+  },
+  tbilisi: { 
+    coords: [41.7151, 44.8271], 
+    name: "Tbilisi, Georgia", 
+    desc: "Base for Days 1-6 & Day 10",
+    img: "/images/tbilisi.png",
+    wiki: "https://en.wikipedia.org/wiki/Tbilisi"
+  },
+  mtskheta: { 
+    coords: [41.8423, 44.7162], 
+    name: "Mtskheta, Georgia", 
+    desc: "Jvari Monastery & Svetitskhoveli",
+    wiki: "https://en.wikipedia.org/wiki/Mtskheta"
+  },
+  uplistsikhe: { 
+    coords: [41.9615, 44.2081], 
+    name: "Uplistsikhe & Gori, Georgia", 
+    desc: "Ancient Cave Town & Stalin Museum",
+    wiki: "https://en.wikipedia.org/wiki/Uplistsikhe"
+  },
+  armenia_border: { 
+    coords: [41.2223, 44.8329], 
+    name: "Sadakhlo Border Crossing", 
+    desc: "Georgia-Armenia border control",
+    wiki: "https://en.wikipedia.org/wiki/Sadakhlo"
+  },
+  haghpat: { 
+    coords: [41.0938, 44.7120], 
+    name: "Haghpat Monastery, Armenia", 
+    desc: "UNESCO World Heritage site in Debed Canyon",
+    img: "/images/armenia.png",
+    wiki: "https://en.wikipedia.org/wiki/Haghpat_Monastery"
+  },
+  sanahin: { 
+    coords: [41.0872, 44.6821], 
+    name: "Sanahin Monastery, Armenia", 
+    desc: "Ancient medieval school & library",
+    img: "/images/armenia.png",
+    wiki: "https://en.wikipedia.org/wiki/Sanahin_Monastery"
+  },
+  ananuri: { 
+    coords: [42.1633, 44.7025], 
+    name: "Ananuri Fortress, Georgia", 
+    desc: "Scenic complex on the Aragvi River",
+    wiki: "https://en.wikipedia.org/wiki/Ananuri"
+  },
+  gudauri: { 
+    coords: [42.4925, 44.4719], 
+    name: "Friendship Monument, Gudauri", 
+    desc: "Soviet-Georgian Friendship view",
+    wiki: "https://en.wikipedia.org/wiki/Russia%E2%80%93Georgia_Friendship_Monument"
+  },
+  kazbegi: { 
+    coords: [42.6593, 44.6433], 
+    name: "Stepantsminda (Kazbegi), Georgia", 
+    desc: "Gergeti Trinity Church base (Days 7-9)",
+    img: "/images/kazbegi.png",
+    wiki: "https://en.wikipedia.org/wiki/Stepantsminda"
+  },
+  juta: { 
+    coords: [42.5786, 44.7431], 
+    name: "Juta Valley, Georgia", 
+    desc: "Dramatic mountain hikes",
+    wiki: "https://en.wikipedia.org/wiki/Juta,_Georgia"
+  },
+  baku: { 
+    coords: [40.4093, 49.8671], 
+    name: "Baku, Azerbaijan", 
+    desc: "Caspian Sea Base (Days 10-14)",
+    img: "/images/baku.png",
+    wiki: "https://en.wikipedia.org/wiki/Baku"
+  },
+  absheron: { 
+    coords: [40.4522, 50.0089], 
+    name: "Ateshgah & Yanar Dag, Azerbaijan", 
+    desc: "Fire Temple & Burning Mountain",
+    wiki: "https://en.wikipedia.org/wiki/Ateshgah_of_Baku"
+  },
+  gobustan: { 
+    coords: [40.1167, 49.3833], 
+    name: "Gobustan Mud Volcanoes", 
+    desc: "Unusual mud craters & rock art",
+    wiki: "https://en.wikipedia.org/wiki/Gobustan_National_Park"
+  }
 };
 
 // Route mapping for each day
@@ -82,13 +157,22 @@ function initMap() {
 
     const marker = L.marker(loc.coords, { icon: icon }).addTo(map);
     
-    // Add premium styled popup
-    marker.bindPopup(`
-      <div class="map-popup-content">
-        <h4>${loc.name}</h4>
-        <p>${loc.desc}</p>
-      </div>
-    `);
+    // Construct popup HTML with image and Wikipedia link
+    let popupHTML = `<div class="map-popup-content" style="max-width: 250px;">`;
+    popupHTML += `<h4>${loc.name}</h4>`;
+    popupHTML += `<p style="margin-bottom: 8px;">${loc.desc}</p>`;
+    
+    if (loc.img) {
+      popupHTML += `<img src="${loc.img}" alt="${loc.name}" style="width:100%; height:130px; object-fit:cover; border-radius:6px; margin-bottom:8px; display:block;" />`;
+    }
+    
+    if (loc.wiki) {
+      popupHTML += `<a href="${loc.wiki}" target="_blank" class="popup-wiki-link" style="color:#F59E0B; text-decoration:none; font-size:11px; font-weight:600; display:inline-flex; align-items:center; gap:4px;">Read Wikipedia <span class="material-symbols-outlined" style="font-size:12px;">open_in_new</span></a>`;
+    }
+    
+    popupHTML += `</div>`;
+    
+    marker.bindPopup(popupHTML);
 
     markers[key] = marker;
   });
@@ -246,4 +330,119 @@ function focusOnDayLocations(dayNum) {
       markers[mainKey].openPopup();
     }, 600);
   }
+}
+
+// Wikipedia Modal Intercept Logic
+document.addEventListener("DOMContentLoaded", () => {
+  initWikiModal();
+});
+
+function initWikiModal() {
+  const modal = document.getElementById("wiki-modal");
+  const closeBtn = document.getElementById("wiki-modal-close");
+  const modalBody = document.getElementById("wiki-modal-body");
+
+  if (!modal || !closeBtn || !modalBody) return;
+
+  // Intercept Wikipedia links on the entire page (timeline & leaflet popups)
+  document.addEventListener("click", (e) => {
+    const targetLink = e.target.closest("a");
+    if (!targetLink) return;
+
+    const href = targetLink.getAttribute("href") || "";
+    if (href.includes("wikipedia.org/wiki/")) {
+      e.preventDefault();
+      
+      // Extract title from URL
+      const parts = href.split("/wiki/");
+      const rawTitle = parts[parts.length - 1];
+      const title = decodeURIComponent(rawTitle.split("?")[0].split("#")[0]);
+
+      openWikiModal(title, href);
+    }
+  });
+
+  // Close modal when clicking close button
+  closeBtn.addEventListener("click", closeWikiModal);
+
+  // Close modal when clicking overlay (outside modal content)
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeWikiModal();
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("open")) {
+      closeWikiModal();
+    }
+  });
+}
+
+async function openWikiModal(title, originalUrl) {
+  const modal = document.getElementById("wiki-modal");
+  const modalBody = document.getElementById("wiki-modal-body");
+
+  if (!modal || !modalBody) return;
+
+  // Show modal in loading state
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  
+  modalBody.innerHTML = `
+    <div class="wiki-loading">
+      <div class="spinner"></div>
+      <p>Fetching article summary...</p>
+    </div>
+  `;
+
+  // Format title for fallback display
+  const displayTitle = title.replace(/_/g, " ");
+
+  try {
+    // Call Wikipedia REST API for page summary
+    const response = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch Wikipedia page summary: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    // Construct modal body HTML
+    let bodyHTML = `<h3 class="wiki-modal-title">${data.title || displayTitle}</h3>`;
+    
+    if (data.thumbnail && data.thumbnail.source) {
+      bodyHTML += `<img src="${data.thumbnail.source}" class="wiki-modal-img" alt="${data.title}" />`;
+    }
+    
+    bodyHTML += `<p class="wiki-modal-extract">${data.extract || "No summary available."}</p>`;
+    bodyHTML += `<a href="${originalUrl}" target="_blank" class="wiki-modal-cta">
+      Read Full Article
+      <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+    </a>`;
+    
+    modalBody.innerHTML = bodyHTML;
+  } catch (error) {
+    console.error("Error loading Wikipedia preview:", error);
+    
+    // Render error state with a link to fallback opening in new tab
+    modalBody.innerHTML = `
+      <div class="wiki-error">
+        <span class="material-symbols-outlined wiki-error-icon" style="font-size:48px; color:#EF4444; margin-bottom:12px;">error</span>
+        <p style="margin-bottom:20px;">Could not fetch article summary from Wikipedia.</p>
+        <a href="${originalUrl}" target="_blank" class="wiki-modal-cta">
+          Open in New Tab
+          <span class="material-symbols-outlined" style="font-size:16px;">open_in_new</span>
+        </a>
+      </div>
+    `;
+  }
+}
+
+function closeWikiModal() {
+  const modal = document.getElementById("wiki-modal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
 }
