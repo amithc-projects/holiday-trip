@@ -152,12 +152,18 @@ function initMap() {
   // Position zoom control in top-right
   L.control.zoom({ position: "topright" }).addTo(map);
 
-  // CartoDB Dark Matter Tile Layer (Matches premium dark theme)
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: "abcd",
-    maxZoom: 20
+  // Esri World Dark Gray Canvas Basemap (Forces clean English labels)
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+    attribution: 'Tiles &copy; Esri, HERE, Garmin, &copy; OpenStreetMap contributors',
+    maxZoom: 16
   }).addTo(map);
+
+  // Esri World Dark Gray Reference Layer (Transparent labels on top)
+  L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+    attribution: '',
+    maxZoom: 16
+  }).addTo(map);
+
 
   // Add markers
   Object.keys(LOCATIONS).forEach(key => {

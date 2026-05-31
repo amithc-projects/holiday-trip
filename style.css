@@ -997,3 +997,154 @@ body {
   border-top-color: var(--accent-primary) !important;
 }
 
+/* Base stay background colors and highlights */
+
+/* Tbilisi Base (Georgia - Blue/Gold theme) */
+.timeline-day.base-tbilisi .timeline-content {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+.timeline-day.base-tbilisi.active .timeline-content,
+.timeline-day.base-tbilisi:hover .timeline-content {
+  border-color: var(--border-color-glow);
+  background: linear-gradient(145deg, var(--bg-secondary), rgba(25, 32, 63, 0.45));
+}
+
+.timeline-day.base-tbilisi:hover .timeline-dot,
+.timeline-day.base-tbilisi.active .timeline-dot {
+  border-color: var(--accent-primary);
+  background: var(--accent-primary);
+  box-shadow: 0 0 12px var(--accent-primary);
+}
+
+/* Kazbegi Base (Georgia Mountains - Dark Pine Emerald theme) */
+.timeline-day.base-kazbegi .timeline-content {
+  background: #091C19;
+  border-color: #123B33;
+}
+
+.timeline-day.base-kazbegi.active .timeline-content,
+.timeline-day.base-kazbegi:hover .timeline-content {
+  border-color: #1A5449;
+  background: linear-gradient(145deg, #091C19, #0D2C28);
+  box-shadow: 0 10px 30px -10px rgba(9, 28, 25, 0.6);
+}
+
+.timeline-day.base-kazbegi .day-number {
+  color: #10B981; /* emerald/green accent */
+}
+
+.timeline-day.base-kazbegi:hover .timeline-dot,
+.timeline-day.base-kazbegi.active .timeline-dot {
+  border-color: #10B981;
+  background: #10B981;
+  box-shadow: 0 0 12px #10B981;
+}
+
+/* Baku Base (Azerbaijan Flame - Dark Pomegranate/Burgundy theme) */
+.timeline-day.base-baku .timeline-content {
+  background: #1B0B13;
+  border-color: #38192A;
+}
+
+.timeline-day.base-baku.active .timeline-content,
+.timeline-day.base-baku:hover .timeline-content {
+  border-color: #5E2646;
+  background: linear-gradient(145deg, #1B0B13, #2A121F);
+  box-shadow: 0 10px 30px -10px rgba(27, 11, 19, 0.6);
+}
+
+.timeline-day.base-baku .day-number {
+  color: #EC4899; /* pomegranate pink accent */
+}
+
+.timeline-day.base-baku:hover .timeline-dot,
+.timeline-day.base-baku.active .timeline-dot {
+  border-color: #EC4899;
+  background: #EC4899;
+  box-shadow: 0 0 12px #EC4899;
+}
+
+/* Optional Hands-On Experiences */
+.experience-box {
+  margin-top: 16px;
+  padding: 14px 18px;
+  background: rgba(245, 158, 11, 0.03);
+  border: 1px dashed rgba(245, 158, 11, 0.25);
+  border-radius: 8px;
+  font-size: 13px;
+  transition: var(--transition-smooth);
+}
+
+.experience-box:hover {
+  background: rgba(245, 158, 11, 0.06);
+  border-color: var(--accent-primary);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.08);
+}
+
+.experience-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.experience-header span {
+  font-size: 16px;
+}
+
+.experience-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text-secondary);
+}
+
+.experience-desc {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.experience-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  border-top: 1px solid rgba(245, 158, 11, 0.10);
+  padding-top: 8px;
+  margin-top: 4px;
+}
+
+.experience-price {
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.experience-links {
+  display: flex;
+  gap: 12px;
+}
+
+.experience-link {
+  color: var(--accent-primary);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--transition-smooth);
+}
+
+.experience-link:hover {
+  color: #FFF;
+}
+
+
+
